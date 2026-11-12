@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faith Agashi | Premium Craft Burgers</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* CSS Variables for Custom Theme */
+      :root {
+        --primary-color: #047857; /* Emerald Green */
+        --primary-hover: #065f46;
+        --secondary-color: #f59e0b; /* Amber Gold */
+        --secondary-hover: #d97706;
+        --dark-bg: #111827; /* Charcoal */
+        --light-bg: #f9fafb;
+        --text-dark: #1f2937;
+        --text-light: #f3f4f6;
+        --font-heading: "Playfair Display", serif;
+        --font-body: "Inter", sans-serif;
+      }
+
+      /* Reset & Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--text-dark);
+        background-color: var(--light-bg);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+        border-radius: 8px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        font-weight: 600;
+        font-size: 1rem;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 2px solid transparent;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-primary {
+        background-color: var(--secondary-color);
+        color: var(--dark-bg);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--secondary-hover);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--text-dark);
+        border-color: var(--text-dark);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--text-dark);
+        color: #fff;
+      }
+
+      .btn-white {
+        background-color: #fff;
+        color: var(--primary-color);
+      }
+
+      .btn-white:hover {
+        background-color: var(--light-bg);
+      }
+
+      /* Announcement Bar */
+      .announcement-bar {
+        background-color: var(--secondary-color);
+        color: var(--dark-bg);
+        text-align: center;
+        padding: 12px 20px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        position: relative;
+        z-index: 100;
+      }
+
+      .announcement-bar a {
+        text-decoration: underline;
+      }
+
+      /* Header & Navigation */
+      header {
+        background-color: var(--dark-bg);
+        color: var(--text-light);
+        position: sticky;
+        top: 0;
+        z-index: 90;
+        border-bottom: 1px solid #374151;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+      }
+
+      .logo {
+        font-family: var(--font-heading);
+        font-size: 1.8rem;
+        color: var(--secondary-color);
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .nav-links {
+        display: none;
+        gap: 30px;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary-color);
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .cart-icon {
+        font-size: 1.3rem;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .location-bar {
+        background-color: var(--primary-color);
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+
+      /* Mobile Menu Button */
+      .menu-btn {
+        display: block;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        background-color: var(--dark-bg);
+        color: #fff;
+        padding: 60px 0;
+        position: relative;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      .hero-content h1 span {
+        color: var(--secondary-color);
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+        color: #9ca3af;
+        margin-bottom: 30px;
+      }
+
+      /* Rewards Section */
+      .rewards-section {
+        background-color: var(--primary-color);
+        padding: 60px 0;
+      }
+
+      .rewards-card {
+        background-color: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .rewards-content {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .rewards-content h2 {
+        font-size: 2.5rem;
+        color: var(--dark-bg);
+        margin-bottom: 15px;
+      }
+
+      .rewards-content p {
+        color: #4b5563;
+        margin-bottom: 25px;
+        font-size: 1.1rem;
+      }
+
+      .rewards-buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      /* Menu Categories Section */
+      .menu-section {
+        padding: 80px 0;
+        background-color: var(--light-bg);
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+        color: var(--dark-bg);
+        margin-bottom: 10px;
+      }
+
+      .section-header p {
+        color: #6b7280;
+        font-style: italic;
+      }
+
+      .menu-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .menu-item {
+        text-align: center;
+      }
+
+      .menu-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .menu-item:hover img {
+        transform: translateY(-5px);
+      }
+
+      .menu-item .btn {
+        width: 100%;
+        border: 2px solid #e5e7eb;
+        background: transparent;
+        color: var(--dark-bg);
+      }
+
+      .menu-item .btn:hover {
+        background: var(--dark-bg);
+        color: #fff;
+        border-color: var(--dark-bg);
+      }
+
+      /* About Section */
+      .about-section {
+        background-color: var(--dark-bg);
+        color: #fff;
+        padding: 80px 0;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .about-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: var(--secondary-color);
+      }
+
+      .about-content p {
+        color: #d1d5db;
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+      }
+
+      /* Feature Cards Section */
+      .features-section {
+        background-color: var(--primary-color);
+        padding: 80px 0;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .feature-card {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-card img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 0;
+      }
+
+      .feature-content {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
+      .feature-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: var(--dark-bg);
+      }
+
+      .feature-content p {
+        color: #6b7280;
+        margin-bottom: 20px;
+        flex-grow: 1;
+      }
+
+      .feature-content .btn {
+        width: 100%;
+        background-color: var(--primary-color);
+        color: #fff;
+      }
+
+      .feature-content .btn:hover {
+        background-color: var(--primary-hover);
+      }
+
+      /* Footer */
+      footer {
+        background-color: #0f172a;
+        color: #94a3b8;
+        padding: 60px 0 20px;
+        font-size: 0.9rem;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-col h4 {
+        color: #fff;
+        margin-bottom: 20px;
+        font-family: var(--font-body);
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+
+      .footer-col ul li a:hover {
+        color: var(--secondary-color);
+      }
+
+      .footer-logo {
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+        font-weight: 900;
+      }
+
+      .app-badges {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .app-badges img {
+        height: 40px;
+        width: auto;
+        cursor: pointer;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #1e293b;
+        color: #fff;
+        transition: background 0.3s;
+      }
+
+      .social-icons a:hover {
+        background-color: var(--secondary-color);
+        color: var(--dark-bg);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #1e293b;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .legal-links {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .legal-links a:hover {
+        color: #fff;
+      }
+
+      /* Media Queries (Responsive Design) */
+      @media (min-width: 640px) {
+        .menu-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 768px) {
+        .hero-content h1 {
+          font-size: 4rem;
+        }
+        .rewards-card {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .nav-links {
+          display: flex;
+        }
+        .menu-btn {
+          display: none;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 60px;
+        }
+        .about-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .menu-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .features-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .footer-grid {
+          grid-template-columns: 1.5fr 1fr 1fr 1fr 1.5fr;
+        }
+        .footer-bottom {
+          flex-direction: row;
+          justify-content: space-between;
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+      <span
+        >America’s favorite dessert just found a straw. Meet the Apple Pie
+        Shake.</span
+      >
+      <a href="#">Order Now &rarr;</a>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div class="container nav-container">
+        <button class="menu-btn"><i class="fas fa-bars"></i></button>
+        <a href="#" class="logo">
+          <i class="fas fa-burger"></i> Faith Agashi
+        </a>
+        <nav class="nav-links">
+          <a href="#">Menu</a>
+          <a href="#">The Faithful Club</a>
+          <a href="#">Gift Cards</a>
+          <a href="#">Deals</a>
+          <a href="#">Catering</a>
+          <a href="#">Locations</a>
+        </nav>
+        <div class="nav-actions">
+          <a
+            href="#"
+            class="btn btn-primary"
+            style="padding: 8px 16px; font-size: 0.85rem"
+            >Sign In</a
+          >
+          <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+        </div>
+      </div>
+      <div class="location-bar">
+        <i class="fas fa-map-marker-alt"></i>
+        <a href="#">Choose a location to order</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <h1>Crafted by Faith. <br /><span>Smashed to Perfection.</span></h1>
+            <p>
+              Experience the ultimate gourmet burger, meticulously crafted with
+              premium ingredients and a signature sear.
+            </p>
+            <a href="#" class="btn btn-primary">Discover the Latest Creation</a>
+          </div>
+          <div class="hero-image">
+            <!-- Placeholder for Hero Burger Image -->
+            <img
+              src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+              alt="Delicious Gourmet Burger"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Rewards Section -->
+      <section class="rewards-section">
+        <div class="container">
+          <div class="rewards-card">
+            <div class="rewards-image" style="height: 100%; min-height: 300px">
+              <img
+                src="https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Rewards Burger"
+                style="
+                  height: 100%;
+                  width: 100%;
+                  object-fit: cover;
+                  border-radius: 0;
+                "
+              />
+            </div>
+            <div class="rewards-content">
+              <h2>Join The Faithful Club</h2>
+              <p>
+                Unlock exclusive rewards, earn points on every order, and get $5
+                off your first $15+ purchase. It's our way of saying thank you.
+              </p>
+              <div class="rewards-buttons">
+                <a href="#" class="btn btn-primary">Sign Up</a>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menu Categories Section -->
+      <section class="menu-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Our Menu</h2>
+            <p>* Menu options may vary by location.</p>
+          </div>
+          <div class="menu-grid">
+            <!-- Item 1 -->
+            <div class="menu-item">
+              <img
+                src="https://images.unsplash.com/photo-1594212844848-11b54629da85?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="New & Limited Time"
+              />
+              <a href="#" class="btn">New & Limited Time</a>
+            </div>
+            <!-- Item 2 -->
+            <div class="menu-item">
+              <img
+                src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Smashburgers"
+              />
+              <a href="#" class="btn">Signature Burgers</a>
+            </div>
+            <!-- Item 3 -->
+            <div class="menu-item">
+              <img
+                src="https://images.unsplash.com/photo-1612392061787-2d078b3e573c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Big Dogs"
+              />
+              <a href="#" class="btn">Gourmet Dogs</a>
+            </div>
+            <!-- Item 4 -->
+            <div class="menu-item">
+              <img
+                src="https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Chicken"
+              />
+              <a href="#" class="btn">Crispy Chicken</a>
+            </div>
+            <!-- Item 5 -->
+            <div class="menu-item">
+              <img
+                src="https://images.unsplash.com/photo-1518013431117-eb1465fa5752?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Sides"
+              />
+              <a href="#" class="btn">Sides & Fries</a>
+            </div>
+            <!-- Item 6 -->
+            <div class="menu-item">
+              <img
+                src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Shakes"
+              />
+              <a href="#" class="btn">Hand-Spun Shakes</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <div class="container about-grid">
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Crafting Burgers"
+            />
+          </div>
+          <div class="about-content">
+            <h2>The Art of the Smash</h2>
+            <p>
+              At Faith Agashi, we take pride in our craft. Our made-to-order
+              burgers are built differently. Using our signature smashing
+              technique, we create a mouthwatering caramelized, crispy sear that
+              seals in all the juicy goodness within.
+            </p>
+            <p>
+              Our passion for culinary innovation drives us to continuously
+              experiment with ingredient combinations until we achieve the
+              perfect recipe. From our custom spice blend to every carefully
+              selected topping, each ingredient is chosen for maximum flavor
+              impact.
+            </p>
+            <a href="#" class="btn btn-white">About Our Food</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature Cards Section -->
+      <section class="features-section">
+        <div class="container">
+          <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+              <img
+                src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Gift Cards"
+              />
+              <div class="feature-content">
+                <h3>Gift Cards</h3>
+                <p>
+                  Purchase virtual gift cards! Available in $15-$250, choose the
+                  gift that fits the occasion.
+                </p>
+                <a href="#" class="btn">Buy Gift Cards</a>
+              </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="feature-card">
+              <img
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Rewards"
+              />
+              <div class="feature-content">
+                <h3>The Faithful Club</h3>
+                <p>
+                  Order fast, save your favorite orders, earn points, and get
+                  free food. It’s really that simple!
+                </p>
+                <a href="#" class="btn">Join Now</a>
+              </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="feature-card">
+              <img
+                src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Catering"
+              />
+              <div class="feature-content">
+                <h3>Catering</h3>
+                <p>
+                  Make your next event a Smash! We offer catering packages for
+                  any size gathering.
+                </p>
+                <a href="#" class="btn">Explore Catering</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">Faith Agashi</div>
+            <p>
+              Premium, crafted burgers made with passion and the finest
+              ingredients.
+            </p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Helpful Links</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Our Food</a></li>
+              <li><a href="#">Nutrition</a></li>
+              <li><a href="#">Catering</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Locations</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Inquiries</h4>
+            <ul>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Deals</a></li>
+              <li><a href="#">Franchising</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Popular Searches</h4>
+            <ul>
+              <li><a href="#">The Burger Hub</a></li>
+              <li><a href="#">Veggie Burgers</a></li>
+              <li><a href="#">What Is A Smash Burger?</a></li>
+              <li><a href="#">Smash Burger Recipe</a></li>
+              <li><a href="#">Local Burger Places</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Download Our App</h4>
+            <p>Get exclusive deals and order faster.</p>
+            <div class="app-badges">
+              <!-- Placeholders for App Store Badges -->
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                alt="Google Play"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                alt="App Store"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Faith Agashi IP Holder LLC. All rights reserved.</p>
+          <div class="legal-links">
+            <a href="#">Accessibility</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Notice</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
